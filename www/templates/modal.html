@@ -1,0 +1,18 @@
+<ion-modal-view>
+    <ion-pane>
+	      <ion-header-bar class="bar-stable" id="header">
+	          <button class="button icon-right ion-android-arrow-back" ng-click="closeModal()"></button>
+	      </ion-header-bar>
+		<ion-content>
+			<div class="card">
+			  <div class="item item-divider" id="currentTodo-title">
+			  	{{currentTodo.title}}
+			  </div>
+			  <div class="item item-text-wrap description" >
+				<textarea class="text-description" ng-model="currentTodo.description">
+				</textarea>
+
+			</div><!-- End of card-->
+		</ion-content>
+	</ion-pane>		
+</ion-modal-view>

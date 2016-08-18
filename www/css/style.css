@@ -1,0 +1,81 @@
+h1:first-child{
+	font-family: 'Pacifico', cursive;
+	font-size: 20px;
+	margin-top:5px;
+}
+.starter{
+	height: 100%;
+	width: 100%;
+	position:absolute;
+	text-align: center;
+}
+
+.starter p {
+	margin-top:45%;
+	font-size: 17px;
+	font-family: sans-serif;
+	color:white;
+	font-weight: 900;
+	text-shadow: 0px 0.7px #444;
+
+}
+
+.greating{
+	font-size:40px;
+}
+#header{
+	background:#1abc9c;
+}
+#footer{
+	background:#1abc9c;
+}
+
+/* Modale : */
+.description{
+	padding:0px;
+}
+.text-description{
+	width:100%;
+	min-height:100px;
+	background-color: ;
+	text-align: left;
+	padding-left: 14px;
+	padding-top:7px;
+	overflow: visible; 
+
+
+}
+
+#currentTodo-title{
+	background-color: #66FFCC;
+}
+
+.starter, .scroll-content {
+	background-image:url('../img/bg4.jpg');
+	background-position:bottom; 
+	background-repeat: no-repeat; 
+	background-size:100%;
+}
+
+.ion-ios-help-outline{
+	position: absolute;
+    right: 20px;
+    font-size: 30px;
+}
+
+
+.slide-in-right {
+  -webkit-transform: translateX(100%);
+    transform: translateX(100%); }
+
+.slide-in-right.ng-enter, .slide-in-right > .ng-enter {
+  -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; }
+
+.slide-in-right.ng-enter-active, .slide-in-right > .ng-enter-active {
+  -webkit-transform: translateX(0);
+    transform: translateX(0); }
+
+.slide-in-right.ng-leave, .slide-in-right > .ng-leave {
+  -webkit-transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms; }
