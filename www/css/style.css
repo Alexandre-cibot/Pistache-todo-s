@@ -63,7 +63,12 @@ h1:first-child{
     font-size: 30px;
 }
 
+.deleting-icon{
+	color: #e74c3c;
+}
 
+
+/* Transition vers le templates d'informations */
 .slide-in-right {
   -webkit-transform: translateX(100%);
     transform: translateX(100%); }
@@ -79,3 +84,9 @@ h1:first-child{
 .slide-in-right.ng-leave, .slide-in-right > .ng-leave {
   -webkit-transition: all ease-in-out 250ms;
   transition: all ease-in-out 250ms; }
+
+/* Style css de l'alert ('25 caractere maximum pour le titre')*/
+
+.alertPopup .popup button{
+	background: #e74c3c;
+}

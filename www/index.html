@@ -27,7 +27,8 @@
     <ion-pane>
       <ion-header-bar class="bar" id="header">
           <h1>Pistache's todos</h1>
-          <span class="icon-right ion-ios-help-outline" ng-click="showInfos()"></span>
+            <span class="icon-right ion-ios-help-outline" ng-click="showInfos()"></span>
+          
       </ion-header-bar>
       <!--TodoList-->
       <div ng-if="showTodolist">
@@ -47,21 +48,19 @@
             <div class="item item-text-wrap">
               <div class="row">
                 <div class="col col-90"  ng-click="openModal($index)">{{todo.title}}</div>
-                <div style="text-align:right;" class="col col-10">
-                     <span class="ion-close-round"></span>
+                <div style="text-align:right;" class="col col-10" ng-if="deleting_mode">
+                     <span class="deleting-icon ion-close-round" ng-click='removeSingleTodo($index)'></span>
                 </div>
               </div>
-         
-           
             </div>
           </div>
           <!-- End of the card-->
-
         </ion-content>
       </div>
       <!-- End of TodoList -->
       <!-- SPECIFICAL PART OF ONE SINGLE TODO. It will be displayed when the user click on the title -->
-      <ion-content ng-if="showSpecificalTodo">
+      <!-- The code Below seems to be useless now-->
+     <!-- <ion-content ng-if="showSpecificalTodo">
         <div class="card">
           <div class="item item-text-wrap">
             {{todo.title}} 
@@ -69,12 +68,13 @@
             <button>Valider</button>
           </div>
         </div>
-      </ion-content>
+      </ion-content>-->
       <!-- END OF SPECIFICAL PART OF ONE SINGLE TODO -->
       <!--Footer-->
         <ion-footer-bar id="footer">
             <button style="font-size: 30px;"class="button ion-plus-round" ng-click="addTodo()"></button>
-            <button style="font-size: 30px;" class="button ion-trash-a" ng-click="removeTodos()"></button>
+            <button style="font-size: 30px;" class="button ion-trash-a" ng-if="!deleting_mode" ng-click="removeTodos()"></button>
+              <button style="font-size: 30px;" class="button ion-android-done" ng-if="deleting_mode" ng-click="removeTodos()"></button>
         </ion-footer-bar>
     </ion-pane>
   </body>
