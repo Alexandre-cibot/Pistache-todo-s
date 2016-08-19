@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -27,7 +26,8 @@
     <ion-pane>
       <ion-header-bar class="bar" id="header">
           <h1>Pistache's todos</h1>
-          <span class="icon-right ion-ios-help-outline" ng-click="showInfos()"></span>
+            <span class="icon-right ion-ios-help-outline" ng-click="showInfos()"></span>
+          
       </ion-header-bar>
       <!--TodoList-->
       <div ng-if="showTodolist">
@@ -43,18 +43,30 @@
           </div>
 
           <!--There is a card-->
-          <div class="card" ng-repeat='todo in list track by $index' ng-click="openModal($index)">
+          <div class="card" ng-repeat='todo in list track by todo.id' ng-class="todo._removing ? 'removing' : ''">
             <div class="item item-text-wrap">
-              {{todo.title}} 
+               <!-- En mode Deleting -->
+              <div class="row" ng-if="deleting_mode">
+                  <div class="col col-80"  ng-click="openModal($index)">{{todo.title}}
+                  </div>
+                  <div style="text-align:right;" class=" deleting-box-icon col col-20" ng-click='removeSingleTodo($index)'>
+                     <span class="deleting-icon ion-close-round"></span>
+                  </div>
+              </div>
+                <!-- En mode non-deleting -->
+              <div class="row" ng-if="!deleting_mode">
+                  <div class="col col-100"  ng-click="openModal($index)">{{todo.title}}
+                  </div>
+              </div>
             </div>
           </div>
           <!-- End of the card-->
-
         </ion-content>
       </div>
       <!-- End of TodoList -->
       <!-- SPECIFICAL PART OF ONE SINGLE TODO. It will be displayed when the user click on the title -->
-      <ion-content ng-if="showSpecificalTodo">
+      <!-- The code Below seems to be useless now-->
+     <!-- <ion-content ng-if="showSpecificalTodo">
         <div class="card">
           <div class="item item-text-wrap">
             {{todo.title}} 
@@ -62,12 +74,13 @@
             <button>Valider</button>
           </div>
         </div>
-      </ion-content>
+      </ion-content>-->
       <!-- END OF SPECIFICAL PART OF ONE SINGLE TODO -->
       <!--Footer-->
         <ion-footer-bar id="footer">
-            <button style="font-size: 20px;"class="button ion-plus-round" ng-click="addTodo()"></button>
-            <button class="button icon-right ion-trash-a" ng-click="removeTodos()"></button>
+            <button style="font-size: 30px;"class="button ion-plus-round" ng-click="addTodo()"></button>
+            <button style="font-size: 30px;" class="button ion-trash-a" ng-if="!deleting_mode" ng-click="removeTodos()"></button>
+              <button style="font-size: 30px;" class="button ion-android-done" ng-if="deleting_mode" ng-click="removeTodos()"></button>
         </ion-footer-bar>
     </ion-pane>
   </body>

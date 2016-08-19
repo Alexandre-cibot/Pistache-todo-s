@@ -25,7 +25,7 @@ app.run(function($ionicPlatform) {
 
 app.controller('listCtrl',function($scope, $ionicPopup, $timeout, $ionicModal) {
   $scope.showTodolist = true;
-  $scope.showSpecificalTodo = false;
+  $scope.deleting_mode = false;
    $scope.list = []; 
 
    if(localStorage && localStorage.getItem('todo')){
@@ -33,12 +33,13 @@ app.controller('listCtrl',function($scope, $ionicPopup, $timeout, $ionicModal) {
     }
   // Triggered on a button click, or some other target
   $scope.addTodo = function() {
+    $scope.deleting_mode = false;
     $scope.data = {};
     // An elaborate, custom popup
     var myPopup = $ionicPopup.show({
       template: '<input type="text" ng-model="data.todo">',
-      title: 'hmmm oui ...? ',
-      subTitle: 'Entre le titre de ton mémo',
+      title: 'Entre un titre à ton mémo ',
+      subTitle: 'Ton titre ne doit pas dépasser les 25 caractères',
       scope: $scope,
       buttons: [
         { text: 'Cancel',
@@ -51,9 +52,20 @@ app.controller('listCtrl',function($scope, $ionicPopup, $timeout, $ionicModal) {
           type: 'button-positive',
           onTap: function(e) {
             if (!$scope.data.todo) {
-              //don't allow the user to close unless he enters wifi password
+              //Impossible to save if the field is empty
               e.preventDefault();
-            } else {
+            } 
+            else if ($scope.data.todo.length > 25) {
+              myPopup.close();
+              var alertPopup = $ionicPopup.alert({
+                title: 'Ooooops !',
+                template: "Attention à ne pas dépasser les 25 caratères maximum.",
+                cssClass:'alertPopup'
+              }).then(function(){
+                $scope.addTodo();
+              })
+            }
+            else {
               return $scope.data.todo;
             }
           }
@@ -63,14 +75,19 @@ app.controller('listCtrl',function($scope, $ionicPopup, $timeout, $ionicModal) {
 
 
     myPopup.then(function(result) {
-      console.log('Tapped!', result);
-      if(result.length > 0){
+      if(result !== undefined){
+        if(result.length > 0){
           $scope.list.push({
           id :  Math.round(Math.random() * 78996385274796324 - 0.5) ,
           title : result
           });
           //We update de Localstorage
           localStorage.setItem('todo', JSON.stringify($scope.list));
+          console.log('Tapped!', result);
+        }
+      }
+      else{
+        console.log('Nothing enter');
       }
     });
    };
@@ -131,22 +148,37 @@ app.controller('listCtrl',function($scope, $ionicPopup, $timeout, $ionicModal) {
    }
 
    $scope.removeTodos = function(){
-    // When button is clicked, the popup will be show...
-  
-      var confirmPopup = $ionicPopup.confirm({
-         title: 'Supprimer les mémos',
-         template: 'Est-tu sur de tout vouloir supprimer?'
-      });
+    //We make sure that we have at least on todo
+    if($scope.list.length > 0){
+      if(!$scope.deleting_mode){
+        $scope.deleting_mode = true;
+      }
+      else{
+        $scope.deleting_mode = false;
+      }
+    } 
+   };
 
-      confirmPopup.then(function(res) {
-         if(res) {
-            console.log('Sure!');
-            $scope.list = [];
-            localStorage.removeItem('todo');
-         } else {
-            console.log('Not sure!');
-         }
-      });
+   $scope.removeSingleTodo = function(index){
+    console.log('Nombre dans la liste Avant : ' + $scope.list.length);
+    console.log('Contenue supprimé : ' + JSON.stringify($scope.list[index]) + ' index : ' +  index);
+    //Then
+    //We maka a wonderful animation...
+
+    $scope.list[index]._removing = true;
+    //We remove this element from the list
+
+    $timeout(function () {
+      $scope.list.splice(index, 1);
+
+      localStorage.setItem('todo', JSON.stringify($scope.list));
+      console.log('Nombre dans la liste Apres : ' + $scope.list.length);
+      // If it remains any todo, we "stop" the deleting_mode. 
+      if($scope.list.length == 0){
+        $scope.deleting_mode = false; 
+      }
+    }, 200);
+
    };
 
 });
