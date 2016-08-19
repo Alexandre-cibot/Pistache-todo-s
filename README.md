@@ -1,6 +1,10 @@
 # Pistache-todo-s
 Application mobile Hybride
 
+![ScreenShots](https://github.com/Alexandre-cibot/Pistache-todo-s/tree/master/resources/screenshots/1.png)
+
+
+
 ## Attention !
 Ayez conscience que ce projet n'est pas fini :) Il manque encore des fonctionnalités essentielles.
 
@@ -28,3 +32,6 @@ Ce projet à pour unique but de me familiariser avec les technos précédemment 
 - Lancer le build : _ionic build android_ Il faudra ensuite l'installer manuellement sur le device
 - Lancer le build et l'intaller sur le device : _ionic run android_ OU _ionic run ios_
 
+![ScreenShots](https://github.com/Alexandre-cibot/Pistache-todo-s/tree/master/resources/screenshots/2.png)
+![ScreenShots](https://github.com/Alexandre-cibot/Pistache-todo-s/tree/master/resources/screenshots/3.png)
+![ScreenShots](https://github.com/Alexandre-cibot/Pistache-todo-s/tree/master/resources/screenshots/4.png)
