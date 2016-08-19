@@ -1,7 +1,8 @@
 
 # Pistache-todo-s
 Application mobile Hybride
-![1](https://cloud.githubusercontent.com/assets/16755327/17813079/1dfddd16-662a-11e6-8730-db5cb1091541.png)
+
+![1](https://cloud.githubusercontent.com/assets/16755327/17814019/20a7fef8-662e-11e6-9a97-fd1dddc854df.png)
 
 ## Attention !
 Ayez conscience que ce projet n'est pas fini :) Il manque encore des fonctionnalités essentielles.
@@ -30,6 +31,6 @@ Ce projet à pour unique but de me familiariser avec les technos précédemment 
 - Lancer le build : _ionic build android_ Il faudra ensuite l'installer manuellement sur le device
 - Lancer le build et l'intaller sur le device : _ionic run android_ OU _ionic run ios_
 
-![2](https://cloud.githubusercontent.com/assets/16755327/17813078/1df36d9a-662a-11e6-8649-6a48ba3b1c71.png)
-![3](https://cloud.githubusercontent.com/assets/16755327/17813080/1e003f66-662a-11e6-9a87-815edd074986.png)
-![4](https://cloud.githubusercontent.com/assets/16755327/17813081/1e065388-662a-11e6-98f6-3a48edf8632c.png)
+![2](https://cloud.githubusercontent.com/assets/16755327/17814021/20c7805c-662e-11e6-8bcc-d944b87bed11.png)
+![3](https://cloud.githubusercontent.com/assets/16755327/17814022/20cfbbf0-662e-11e6-8bf6-831f8f208851.png)
+![4](https://cloud.githubusercontent.com/assets/16755327/17814020/20c41e62-662e-11e6-8a80-04deb23f0c5a.png)
