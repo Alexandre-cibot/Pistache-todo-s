@@ -34,9 +34,18 @@ h1:first-child{
 .description{
 	padding:0px;
 }
+
+#currentTodo-title{
+	background-color: #66FFCC;
+	width:100%;
+	resize:none;
+}
+
+
+
 .text-description{
 	width:100%;
-	min-height:100px;
+	min-height:200px;
 	background-color: ;
 	text-align: left;
 	padding-left: 14px;
@@ -51,10 +60,6 @@ h1:first-child{
 }
 .card.removing {
 	transform:translateX(-500px);
-}
-
-#currentTodo-title{
-	background-color: #66FFCC;
 }
 
 .starter, .scroll-content {

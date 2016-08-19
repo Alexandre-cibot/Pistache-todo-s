@@ -5,9 +5,8 @@
 	      </ion-header-bar>
 		<ion-content>
 			<div class="card">
-			  <div class="item item-divider" id="currentTodo-title">
-			  	{{currentTodo.title}}
-			  </div>
+			  <textarea class="item item-divider" id="currentTodo-title" ng-model="currentTodo.title">
+			  </textarea>
 			  <div class="item item-text-wrap description" >
 				<textarea class="text-description" ng-model="currentTodo.description">
 				</textarea>

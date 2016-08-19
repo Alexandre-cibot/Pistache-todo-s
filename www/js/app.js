@@ -38,24 +38,24 @@ app.controller('listCtrl',function($scope, $ionicPopup, $timeout, $ionicModal) {
     // An elaborate, custom popup
     var myPopup = $ionicPopup.show({
       template: '<input type="text" ng-model="data.todo">',
-      title: 'Entre un titre à ton mémo ',
-      subTitle: 'Ton titre ne doit pas dépasser les 25 caractères',
+      title: 'Donne un titre a ton mémo !',
+      subTitle: 'Il ne doit pas dépasser les 30 caractères',
       scope: $scope,
       buttons: [
-        { text: 'Cancel',
+        { text: 'Annuler',
           onTap: function(){
             myPopup.close();
           }
         },
         {
-          text: '<b>Save</b>',
+          text: '<b>Voila !</b>',
           type: 'button-positive',
           onTap: function(e) {
             if (!$scope.data.todo) {
               //Impossible to save if the field is empty
               e.preventDefault();
             } 
-            else if ($scope.data.todo.length > 25) {
+            else if ($scope.data.todo.length > 30) {
               myPopup.close();
               var alertPopup = $ionicPopup.alert({
                 title: 'Ooooops !',
