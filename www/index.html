@@ -43,9 +43,16 @@
           </div>
 
           <!--There is a card-->
-          <div class="card" ng-repeat='todo in list track by $index' ng-click="openModal($index)">
+          <div class="card" ng-repeat='todo in list track by $index'>
             <div class="item item-text-wrap">
-              {{todo.title}} 
+              <div class="row">
+                <div class="col col-90"  ng-click="openModal($index)">{{todo.title}}</div>
+                <div style="text-align:right;" class="col col-10">
+                     <span class="ion-close-round"></span>
+                </div>
+              </div>
+         
+           
             </div>
           </div>
           <!-- End of the card-->
@@ -66,8 +73,8 @@
       <!-- END OF SPECIFICAL PART OF ONE SINGLE TODO -->
       <!--Footer-->
         <ion-footer-bar id="footer">
-            <button style="font-size: 20px;"class="button ion-plus-round" ng-click="addTodo()"></button>
-            <button class="button icon-right ion-trash-a" ng-click="removeTodos()"></button>
+            <button style="font-size: 30px;"class="button ion-plus-round" ng-click="addTodo()"></button>
+            <button style="font-size: 30px;" class="button ion-trash-a" ng-click="removeTodos()"></button>
         </ion-footer-bar>
     </ion-pane>
   </body>
