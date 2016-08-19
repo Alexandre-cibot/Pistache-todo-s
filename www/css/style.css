@@ -46,6 +46,13 @@ h1:first-child{
 
 }
 
+.card {
+	transition: transform 0.5s;
+}
+.card.removing {
+	transform:translateX(-500px);
+}
+
 #currentTodo-title{
 	background-color: #66FFCC;
 }
@@ -61,6 +68,18 @@ h1:first-child{
 	position: absolute;
     right: 20px;
     font-size: 30px;
+}
+
+.deleting-box-icon{
+	text-align: right;
+    text-align: center;
+    position: absolute;
+    right: 0px;
+    font-size: 22px;
+    height: 73px;
+    margin-top: -20px;
+    padding-top: 25px;
+    padding-right: 23px;
 }
 
 .deleting-icon{

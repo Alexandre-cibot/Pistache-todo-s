@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -44,13 +43,20 @@
           </div>
 
           <!--There is a card-->
-          <div class="card" ng-repeat='todo in list track by $index'>
+          <div class="card" ng-repeat='todo in list track by todo.id' ng-class="todo._removing ? 'removing' : ''">
             <div class="item item-text-wrap">
-              <div class="row">
-                <div class="col col-90"  ng-click="openModal($index)">{{todo.title}}</div>
-                <div style="text-align:right;" class="col col-10" ng-if="deleting_mode">
-                     <span class="deleting-icon ion-close-round" ng-click='removeSingleTodo($index)'></span>
-                </div>
+               <!-- En mode Deleting -->
+              <div class="row" ng-if="deleting_mode">
+                  <div class="col col-80"  ng-click="openModal($index)">{{todo.title}}
+                  </div>
+                  <div style="text-align:right;" class=" deleting-box-icon col col-20" ng-click='removeSingleTodo($index)'>
+                     <span class="deleting-icon ion-close-round"></span>
+                  </div>
+              </div>
+                <!-- En mode non-deleting -->
+              <div class="row" ng-if="!deleting_mode">
+                  <div class="col col-100"  ng-click="openModal($index)">{{todo.title}}
+                  </div>
               </div>
             </div>
           </div>

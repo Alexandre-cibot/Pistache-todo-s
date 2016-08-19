@@ -33,6 +33,7 @@ app.controller('listCtrl',function($scope, $ionicPopup, $timeout, $ionicModal) {
     }
   // Triggered on a button click, or some other target
   $scope.addTodo = function() {
+    $scope.deleting_mode = false;
     $scope.data = {};
     // An elaborate, custom popup
     var myPopup = $ionicPopup.show({
@@ -162,14 +163,22 @@ app.controller('listCtrl',function($scope, $ionicPopup, $timeout, $ionicModal) {
     console.log('Nombre dans la liste Avant : ' + $scope.list.length);
     console.log('Contenue supprimé : ' + JSON.stringify($scope.list[index]) + ' index : ' +  index);
     //Then
+    //We maka a wonderful animation...
+
+    $scope.list[index]._removing = true;
     //We remove this element from the list
-    $scope.list.splice(index, 1);
-    localStorage.setItem('todo', JSON.stringify($scope.list));
-    console.log('Nombre dans la liste Apres : ' + $scope.list.length);
-    // If it remains any todo, we "stop" the deleting_mode. 
-    if($scope.list.length == 0){
-      $scope.deleting_mode = false; 
-    }
+
+    $timeout(function () {
+      $scope.list.splice(index, 1);
+
+      localStorage.setItem('todo', JSON.stringify($scope.list));
+      console.log('Nombre dans la liste Apres : ' + $scope.list.length);
+      // If it remains any todo, we "stop" the deleting_mode. 
+      if($scope.list.length == 0){
+        $scope.deleting_mode = false; 
+      }
+    }, 200);
+
    };
 
 });
