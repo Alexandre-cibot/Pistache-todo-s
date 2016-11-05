@@ -1,3 +1,10 @@
+@font-face {
+font-family: 'Pacifico';
+src: url('../fonts/Pacifico.ttf');
+font-weight: normal;
+font-style: normal;
+}
+
 h1:first-child{
 	font-family: 'Pacifico', cursive;
 	font-size: 20px;
@@ -49,7 +56,8 @@ h1:first-child{
 	background-color: ;
 	text-align: left;
 	padding-left: 14px;
-	padding-top:7px;
+	padding-right: 14px; 
+	padding-top:14px;
 	overflow: visible; 
 
 
@@ -114,3 +122,4 @@ h1:first-child{
 .alertPopup .popup button{
 	background: #e74c3c;
 }
+
