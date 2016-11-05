@@ -4,10 +4,8 @@ Application mobile Hybride
 
 ![1](https://cloud.githubusercontent.com/assets/16755327/17814019/20a7fef8-662e-11e6-9a97-fd1dddc854df.png)
 
-## Attention !
-Ayez conscience que ce projet n'est pas fini :) Il manque encore des fonctionnalités essentielles.
 
-## Wtf ? 
+## Qu'est-ce ? 
 Application hybride de gestions de mémos.
 
 ##Techo
@@ -19,7 +17,7 @@ Cordova, Ionic, AngularJs
 HTML - CSS - JS 
 
 ##Why ? 
-Ce projet à pour unique but de me familiariser avec les technos précédemment citées, par curiosité et par passion ! 
+Ce projet à pour but de me familiariser avec les technos précédemment citées, par curiosité et par passion pour le developpement web. 
 
 ##Requirement
 - NodeJS
