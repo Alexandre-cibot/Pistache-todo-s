@@ -8,18 +8,18 @@ Application mobile Hybride
 ## Qu'est-ce ? 
 Application hybride de gestions de mémos.
 
-##Techo
+## Techo
 
-####Framework :
+#### Framework :
 Cordova, Ionic, AngularJs
 
-####Langages : 
+#### Langages : 
 HTML - CSS - JS 
 
-##Why ? 
+## Why ? 
 Ce projet à pour but de me familiariser avec les technos précédemment citées, par curiosité et par passion pour le developpement web. 
 
-##Requirement
+## Requirement
 - NodeJS
 - Cordova
 - Ionic
